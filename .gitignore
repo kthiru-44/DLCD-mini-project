@@ -53,3 +53,14 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# Course documents (User rule: do not push PDFs/docs)
+*.pdf
+*.docx
+
+# Verilog simulation artifacts
+*.vcd
+*.wlf
+transcript
+sim_*
+work/
