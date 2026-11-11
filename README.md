@@ -63,7 +63,7 @@ At the end of Cycle 4, Matrix $C$ contains $\begin{bmatrix} 19 & 22 \\ 43 & 50 \
 
 - [`pe.v`](pe.v): Processing Element module (MAC + pipeline registers).
 - [`systolic_array_2x2.v`](systolic_array_2x2.v): Top-level 2x2 array connecting four PEs.
-- [`tb_systolic_array_2x2.v`](tb_systolic_array_2x2.v): Self-checking testbench (3 matrix tests, inputs driven on negedge to avoid races).
+- [`tb_systolic_array_2x2.v`](tb_systolic_array_2x2.v): Self-checking testbench (single matrix test, inputs driven on negedge to avoid races).
 - [`run_questa.do`](run_questa.do): QuestaSim script (compile, load, add waves, run).
 - [`systolic_array.gtkw`](systolic_array.gtkw): GTKWave save file (signal list, decimal radix).
 
