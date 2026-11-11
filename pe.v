@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 // Processing Element (PE) for Systolic Array
 // Performs: c_out = c_out + (a_in * b_in)
 // Passes:   a_out <= a_in,  b_out <= b_in

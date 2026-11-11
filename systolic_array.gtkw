@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave save file: gtkwave systolic_array.gtkw
+[*]
+[dumpfile] "systolic_array.vcd"
+[timestart] 0
+[size] 1400 600
+[pos] -1 -1
+*-23.0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[treeopen] tb_systolic_array_2x2.
+@200
+-Clock / Reset
+@28
+tb_systolic_array_2x2.clk
+tb_systolic_array_2x2.rst
+@200
+-Inputs
+@24
+tb_systolic_array_2x2.a0_in[7:0]
+tb_systolic_array_2x2.a1_in[7:0]
+tb_systolic_array_2x2.b0_in[7:0]
+tb_systolic_array_2x2.b1_in[7:0]
+@200
+-Outputs C
+@24
+tb_systolic_array_2x2.c00[15:0]
+tb_systolic_array_2x2.c01[15:0]
+tb_systolic_array_2x2.c10[15:0]
+tb_systolic_array_2x2.c11[15:0]
+[pattern_trace] 1
+[pattern_trace] 0

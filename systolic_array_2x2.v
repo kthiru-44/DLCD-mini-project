@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 // 2x2 Systolic Array Matrix Multiplier
 // Computes C = A * B
 module systolic_array_2x2 (

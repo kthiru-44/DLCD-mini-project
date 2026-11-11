@@ -63,7 +63,9 @@ At the end of Cycle 4, Matrix $C$ contains $\begin{bmatrix} 19 & 22 \\ 43 & 50 \
 
 - [`pe.v`](pe.v): Processing Element module (MAC + pipeline registers).
 - [`systolic_array_2x2.v`](systolic_array_2x2.v): Top-level 2x2 array connecting four PEs.
-- [`tb_systolic_array_2x2.v`](tb_systolic_array_2x2.v): Self-checking testbench with waveform dumping.
+- [`tb_systolic_array_2x2.v`](tb_systolic_array_2x2.v): Self-checking testbench (3 matrix tests, inputs driven on negedge to avoid races).
+- [`run_questa.do`](run_questa.do): QuestaSim script (compile, load, add waves, run).
+- [`systolic_array.gtkw`](systolic_array.gtkw): GTKWave save file (signal list, decimal radix).
 
 ---
 
@@ -76,20 +78,22 @@ iverilog -o sim_systolic pe.v systolic_array_2x2.v tb_systolic_array_2x2.v
 vvp sim_systolic
 ```
 
-View the generated waveform in GTKWave:
+View the generated waveform in GTKWave (pre-loads the signals in decimal; run the simulation first to create the .vcd):
 ```bash
-gtkwave systolic_array.vcd
+gtkwave systolic_array.gtkw
 ```
 
 ### Option 2: Using QuestaSim / ModelSim
-In the QuestaSim GUI or Transcript terminal:
-```tcl
-vlib work
-vlog pe.v systolic_array_2x2.v tb_systolic_array_2x2.v
-vsim tb_systolic_array_2x2
-add wave -r /*
-run -all
+From the project folder, GUI mode (compiles, loads, adds waves, runs):
+```bash
+vsim -do run_questa.do
 ```
+Batch mode (no GUI, prints the transcript only):
+```bash
+vlib work && vlog pe.v systolic_array_2x2.v tb_systolic_array_2x2.v
+vsim -c -voptargs=+acc work.tb_systolic_array_2x2 -do "run -all; quit -f"
+```
+For the report: take screenshots of the **Transcript** (PASSED lines) and the **Wave** window (`wave zoom full`).
 
 ---
 
